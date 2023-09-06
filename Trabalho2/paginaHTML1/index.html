@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Love Page</title>
+</head>
+<body>
+    <h1>My Love Calculator</h1>
+    <p>Enter the number of hugs you want to send:</p>
+    <input type="number" id="hugCount" min="1" value="1">
+    <button onclick="sendHugs()">Send Hugs</button>
+    <div id="result"></div>
+
+    <script>
+        function sendHugs() {
+            const hugCount = document.getElementById("hugCount").value;
+            const resultDiv = document.getElementById("result");
+            let hugs = '';
+
+            for (let i = 0; i < hugCount; i++) {
+                hugs += '<img src="hug.gif" alt="Hug">';
+            }
+
+            resultDiv.innerHTML = hugs + "<p>Hugs sent with lots of love!</p>";
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #ff3399;
+        }
+
+        button {
+            background-color: #ff3399;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e60073;
+        }
+    </style>
+</body>
+</html>
