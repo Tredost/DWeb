@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<html lang = "pt-br">
+<head>
+<title> Título do documento da prova </title>
+</head>
+<body> 
+<h1> Esse é um cabeçalho de nível 1 - h1 </h1>
+<p> Esse é um parágrafo do documento. Lembrando que ele usa utf-8 </p>
+<input type = "text" placeholder = "Digite algo aqui">
+<button>Esse é um botão</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+F
+V
+F
+V
+V
+V
+F(ACHO Q EH V)
+FALSO P KARALHO
+FALSETE P2P
+FALSETE GIT EH GOD
+VERDADE ABSOLUTA
+falso
+verdade
+
+
+
+_f
+_e
+_a
+_c
+_b
+_d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
