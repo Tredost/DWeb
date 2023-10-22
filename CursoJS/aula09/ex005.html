@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bora</title>
+    <style>body {
+        font-size: 20pt;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: antiquewhite;
+        color: black;
+
+    }</style>
+</head>
+<body>
+    <h1>Aprendendo <strong>DOM</strong> em s</h1>
+    <p>aqui vai o resultado: </p>
+    <div id = "msg">clique em mim!</div>
+    <div name = "teste">eu sou doido</div>
+    <script>
+            var corpo = window.document.body
+            var p1 = window.document.getElementsByTagName('p')[0]
+            window.document.write('primeiro paragrafo = ' + p1.innerText)
+            p1.style.color = 'blue'
+            corpo.style.background ='purple'
+
+            var d = window.document.getElementById("msg")
+            d.style.backgroundColor = 'green'
+            window.document.getElementsByName("teste")[0].style.fontSize= '30pt'
+            var a = window.document.querySelector('div#msg')
+            a.innerText = 'oi'
+
+
+
+    </script>
+</body>
+</html>
