@@ -1,62 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <title>Mapa OpenStreetMap com Marcadores e Eventos</title>
-    <!-- Inclua os arquivos CSS e JavaScript da Leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site do Rio de Janeiro</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* Estilize o container do mapa */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #ccc;
+            text-align: center;
+            padding: 20px;
+        }
+
         #map {
-            height: 400px;
             width: 100%;
+            height: 400px;
+        }
+
+        #chart {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Crie um contêiner para o mapa -->
+    <header>
+        <h1>Meu Site do Rio de Janeiro</h1>
+    </header>
     <div id="map"></div>
-
-    <!-- Crie um elemento para exibir informações do marcador -->
-    <div id="info">
-        Clique em um marcador para ver informações.
+    <div id="chart">
+        <canvas id="barChart"></canvas>
     </div>
 
     <script>
-        // Inicialize o mapa
-        var mymap = L.map('map').setView([51.505, -0.09], 13); // Define as coordenadas iniciais e o nível de zoom
-
-        // Adicione uma camada do OpenStreetMap
+        // Mapa do OpenStreetMap
+        const map = L.map('map').setView([-22.908333, -43.196388], 12);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19, // Nível máximo de zoom
-        }).addTo(mymap);
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
 
-        // Adicione um marcador ao mapa
-        var marker1 = L.marker([51.5, -0.09]).addTo(mymap);
-        marker1.bindPopup("<b>Olá, Mundo!</b><br>Estou em algum lugar do OpenStreetMap.");
+        // Adicionar marcadores
+        const markers = [
+            { lat: -22.908333, lng: -43.196388, name: "Ponto A" },
+            { lat: -22.920000, lng: -43.200000, name: "Ponto B" },
+            { lat: -22.930000, lng: -43.210000, name: "Ponto C" }
+        ];
 
-        // Adicione mais marcadores
-        var marker2 = L.marker([51.51, -0.1]).addTo(mymap);
-        marker2.bindPopup("Marcador 2");
+        markers.forEach(marker => {
+            L.marker([marker.lat, marker.lng])
+                .addTo(map)
+        });
 
-        var marker3 = L.marker([51.495, -0.085]).addTo(mymap);
-        marker3.bindPopup("Marcador 3");
+        // Gráfico de Barras com Chart.js
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                datasets: [{
+                    label: 'Vendas Mensais',
+                    data: [120, 90, 140, 75, 105],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
-        var marker4 = L.marker([51.505, -0.1]).addTo(mymap);
-        marker4.bindPopup("Marcador 4");
-
-        // Evento de clique em marcador
-        function onMarkerClick(e) {
-            // Atualize o conteúdo do elemento de informações com o texto desejado
-            document.getElementById("info").innerHTML = "Marcador Clicado: " + e.target.getPopup().getContent();
+        // Função para atualizar o gráfico com base no marcador clicado
+        function updateChart(markerIndex) {
+            myChart.data.datasets[0].data = markers[markerIndex].data;
+            myChart.update();
         }
 
-        // Adicione o evento de clique a todos os marcadores
-        marker1.on('click', onMarkerClick);
-        marker2.on('click', onMarkerClick);
-        marker3.on('click', onMarkerClick);
-        marker4.on('click', onMarkerClick);
+        // Adicionar marcadores e eventos de clique
+        markers.forEach((marker, index) => {
+            const newMarker = L.marker([marker.lat, marker.lng]).addTo(map);
+            newMarker.on('click', () => {
+                updateChart(index);
+            });
+        });
+        
     </script>
 </body>
 </html>
