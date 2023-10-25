@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<html>
+<head>
+    <title>Chronos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #myBarChart, #map {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Dashboard</h1>
+            <button onclick="updateChart('option1')">Botão 1</button>
+            <button onclick="updateChart('option2')">Botão 2</button>
+            <button onclick="updateChart('option3')">Botão 3</button>
+        </div>
+    </header>
+    <div>
+        <div id="map" style="height: 300px;"></div>
+    </div>
+    <div id="info">
+        Clique em uma estação para ver informações.
+    </div>
+    <div>
+        <button id="updateChartButton">Atualizar Gráfico </button>
+        <canvas id="myBarChart"></canvas>
+    </div>
+
+    <script>
+        // Dados iniciais do gráfico
+        var dataOptions = {
+            option1: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
+                datasets: [
+                    {
+                        label: "Vendas Mensais - Opção 1",
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1,
+                        data: [12, 19, 3, 5, 2]
+                    }
+                ]
+            },
+            option2: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
+                datasets: [
+                    {
+                        label: "Vendas Mensais - Opção 2",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderWidth: 1,
+                        data: [5, 10, 15, 20, 25]
+                    }
+                ]
+            },
+            option3: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio"],
+                datasets: [
+                    {
+                        label: "Vendas Mensais - Opção 3",
+                        backgroundColor: "rgba(255, 206, 86, 0.2)",
+                        borderColor: "rgba(255, 206, 86, 1)",
+                        borderWidth: 1,
+                        data: [8, 12, 8, 16, 10]
+                    }
+                ]
+            }
+        };
+
+        var currentOption = 'option1';
+
+        // Configurações do gráfico
+        var options = {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        // Função para criar o gráfico de barras
+        function createBarChart(data) {
+            var ctx = document.getElementById("myBarChart").getContext('2d');
+            return new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: options
+            });
+        }
+
+        // Crie o gráfico inicial
+        var myBarChart = createBarChart(dataOptions[currentOption]);
+
+        // Função para atualizar o gráfico com dados aleatórios
+        function updateChartWithRandomData() {
+            var randomData = dataOptions[currentOption].datasets[0].data.map(function() {
+                return Math.floor(Math.random() * 20); // Gere números aleatórios entre 0 e 19
+            });
+
+            myBarChart.data.datasets[0].data = randomData;
+            myBarChart.update();
+        }
+
+        // Função para atualizar o gráfico com base na opção selecionada
+        function updateChart(option) {
+            currentOption = option;
+            myBarChart.data = dataOptions[option];
+            myBarChart.update();
+        }
+
+        // Adicione um ouvinte de evento ao botão para atualizar o gráfico
+        var updateChartButton = document.getElementById("updateChartButton");
+        updateChartButton.addEventListener("click", updateChartWithRandomData);
+        
+        // Crie o mapa no Rio de Janeiro
+        var map = L.map('map').setView([-22.9068, -43.1729], 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+
+        // MARCADORES
+        var marker1 = L.marker([-22.952, -43.1857]).addTo(map);
+        marker1.bindPopup("Marcador 1");
+
+        var marker2 = L.marker([-22.9000, -43.1746]).addTo(map);
+        marker2.bindPopup("Marcador 2");
+
+        var marker3 = L.marker([-22.9759, -43.2208]).addTo(map);
+        marker3.bindPopup("Marcador 3");
+
+        var marker4 = L.marker([-22.9521, -43.1681]).addTo(map);
+        marker4.bindPopup("Marcador 4");
+
+        // Evento de clique em marcador
+        function onMarkerClick(e) {
+            // Atualize o conteúdo do elemento de informações com o texto desejado
+            document.getElementById("info").innerHTML = "Estação Selecionada: " + e.target.getPopup().getContent();
+        }
+
+        // Adicione o evento de clique a todos os marcadores
+        marker1.on('click', onMarkerClick);
+        marker2.on('click', onMarkerClick);
+        marker3.on('click', onMarkerClick);
+        marker4.on('click', onMarkerClick);
+    
+    </script>
+</body>
+</html>

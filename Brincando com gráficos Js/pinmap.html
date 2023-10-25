@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Mapa OpenStreetMap com Marcadores e Eventos</title>
+    <!-- Inclua os arquivos CSS e JavaScript da Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        /* Estilize o container do mapa */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Crie um contêiner para o mapa -->
+    <div id="map"></div>
+
+    <!-- Crie um elemento para exibir informações do marcador -->
+    <div id="info">
+        Clique em um marcador para ver informações.
+    </div>
+
+    <script>
+        // Inicialize o mapa
+        var mymap = L.map('map').setView([51.505, -0.09], 13); // Define as coordenadas iniciais e o nível de zoom
+
+        // Adicione uma camada do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19, // Nível máximo de zoom
+        }).addTo(mymap);
+
+        // Adicione um marcador ao mapa
+        var marker1 = L.marker([51.5, -0.09]).addTo(mymap);
+        marker1.bindPopup("<b>Olá, Mundo!</b><br>Estou em algum lugar do OpenStreetMap.");
+
+        // Adicione mais marcadores
+        var marker2 = L.marker([51.51, -0.1]).addTo(mymap);
+        marker2.bindPopup("Marcador 2");
+
+        var marker3 = L.marker([51.495, -0.085]).addTo(mymap);
+        marker3.bindPopup("Marcador 3");
+
+        var marker4 = L.marker([51.505, -0.1]).addTo(mymap);
+        marker4.bindPopup("Marcador 4");
+
+        // Evento de clique em marcador
+        function onMarkerClick(e) {
+            // Atualize o conteúdo do elemento de informações com o texto desejado
+            document.getElementById("info").innerHTML = "Marcador Clicado: " + e.target.getPopup().getContent();
+        }
+
+        // Adicione o evento de clique a todos os marcadores
+        marker1.on('click', onMarkerClick);
+        marker2.on('click', onMarkerClick);
+        marker3.on('click', onMarkerClick);
+        marker4.on('click', onMarkerClick);
+    </script>
+</body>
+</html>
