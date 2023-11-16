@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="feminino.js"></script>
-    <script src="codigo.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="CryptoJS v3.1.2/rollups/md5.js"></script>
+
 </head>
 <body>
-    <!--
-    <div id="container">
-        <div id="container_atleta">
-            <h3 id="nome"></h3>
-            <img>
-            <p></p>
-        </div>
-    </div>
-    -->
+
+  <div id="login-container">
+    <h1>Login</h1>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Usuário: Mangeli" required>
+      <input type="password" id="password" placeholder="Senha: 123" required>
+      <button type="button" onclick="login()">Entrar</button>
+    </form>
+  </div>
+
+  <div id="main-container" style="display: none;">
+    <h1>Elenco</h1>
+    <button onclick="button1()">Masculino</button>
+    <button onclick="button2()">Feminino</button>
+    <button onclick="button3()">Ambos</button>
+    <button onclick="logout()" class="red-text-button">Logout</button>
+  </div>
+
+  <div id="atletas-container">
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

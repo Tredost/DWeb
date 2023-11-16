@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+#login-container, #main-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+#login-container input {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+
+}
+
+#atletas-container {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+#main-container button {
+    display: block;
+    width: 300px; /* Largura fixa para todos os botões */
+    margin-bottom: 5px; /* Ajuste conforme necessário */
+    line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.red-text-button {
+    color: rgb(230, 70, 70);
+}
