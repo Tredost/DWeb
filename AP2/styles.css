@@ -9,12 +9,32 @@ body {
     background-color: #f4f4f4;
 }
 
-#login-container, #main-container {
+.container-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#login-container {
     text-align: center;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+#main-container {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left:10%;
+    margin-right: auto;
 
 }
 
@@ -27,6 +47,8 @@ body {
 }
 
 #atletas-container {
+    margin-left: 220px;
+    padding: 20px;
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;

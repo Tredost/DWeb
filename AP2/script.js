@@ -6,15 +6,18 @@ const users = [
 document.addEventListener('DOMContentLoaded', function () {
     const loginContainer = document.getElementById('login-container');
     const mainContainer = document.getElementById('main-container');
+    const atletasContainer = document.getElementById('atletas-container');
 
     const isLoggedIn = false;
 
     if (isLoggedIn) {
         loginContainer.style.display = 'none';
         mainContainer.style.display = 'block';
+        atletasContainer.style.display = 'none';
     } else {
         loginContainer.style.display = 'block';
         mainContainer.style.display = 'none';
+        atletasContainer.style.display = 'none';
     }
 });
 
@@ -28,6 +31,7 @@ function login() {
         alert('Login efetuado!');
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('main-container').style.display = 'block';
+        document.getElementById('atletas-container').style.display = 'none';
     } else {
         alert('Usuário ou senha inválido!');
     }
@@ -36,6 +40,7 @@ function login() {
 function logout() {
     document.getElementById('login-container').style.display = 'block';
     document.getElementById('main-container').style.display = 'none';
+    document.getElementById('atletas-container').style.display = 'none';
 }
 
 function md5(input) {
@@ -46,7 +51,7 @@ const div_container = document.getElementById('atletas-container');
 
 function carregarAtletas(endpoint) {
     document.getElementById('login-container').style.display = 'none';
-    document.getElementById('main-container').style.display = 'none';
+    document.getElementById('main-container').style.display = 'block';
     document.getElementById('atletas-container').style.display = 'block';
 
     div_container.innerHTML = '';
@@ -57,12 +62,20 @@ function carregarAtletas(endpoint) {
             data.forEach((atleta) => {
                 cria_cartao(atleta);
             });
+            const botaoVoltar = document.createElement('button');
+            botaoVoltar.textContent = 'Voltar';
+            botaoVoltar.onclick = voltarParaMain;
+            div_container.appendChild(botaoVoltar);
         })
         .catch(error => console.error('Erro ao obter os dados:', error));
 }
 
 function cria_cartao(entrada) {
     const container_atleta = document.createElement('div');
+    container_atleta.className = 'cartao';
+
+    const id = document.createElement('p');
+    id.innerHTML = `ID: ${entrada.id}`;
 
     const titulo = document.createElement('h3');
     titulo.innerHTML = entrada.nome;
@@ -76,6 +89,11 @@ function cria_cartao(entrada) {
     div_container.appendChild(container_atleta);
 }
 
+function voltarParaMain() {
+    document.getElementById('login-container').style.display = 'none';
+    document.getElementById('main-container').style.display = 'block';
+    document.getElementById('atletas-container').style.display = 'none';
+}
 
 function button1() {
     carregarAtletas('https://botafogo-atletas.mange.li/masculino');
@@ -88,4 +106,8 @@ function button2() {
 function button3() {
 
     carregarAtletas('https://botafogo-atletas.mange.li/all');
+}
+
+function buttonDetalhes(id) {
+    //botão recebe o id e gera um cartao com os detalhes do atleta
 }
