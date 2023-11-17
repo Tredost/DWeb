@@ -74,17 +74,18 @@ function cria_cartao(entrada) {
     const container_atleta = document.createElement('div');
     container_atleta.className = 'cartao';
 
-    const id = document.createElement('p');
-    id.innerHTML = `ID: ${entrada.id}`;
-
     const titulo = document.createElement('h3');
     titulo.innerHTML = entrada.nome;
 
     const imagem = document.createElement('img');
     imagem.src = entrada.imagem;
 
+    const botaoDetalhes = document.createElement('button');
+    botaoDetalhes.textContent = 'Detalhes';
+
     container_atleta.appendChild(titulo);
     container_atleta.appendChild(imagem);
+    container_atleta.appendChild(botaoDetalhes);
 
     div_container.appendChild(container_atleta);
 }
@@ -109,5 +110,10 @@ function button3() {
 }
 
 function buttonDetalhes(id) {
-    //botão recebe o id e gera um cartao com os detalhes do atleta
+    fetch(`https://botafogo-atletas.mange.li/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        // Faça algo com os detalhes recebidos
+    })
+    .catch(error => console.error('Erro ao obter detalhes:', error));
 }

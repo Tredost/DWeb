@@ -18,7 +18,7 @@ body {
     text-align: center;
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
@@ -31,10 +31,34 @@ body {
     text-align: center;
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left:10%;
+    margin-left:9%;
     margin-right: auto;
+
+}
+
+.cartao {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align:center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.cartao img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.cartao button {
+    display: block;
+    margin: 6px auto;
 
 }
 
@@ -42,7 +66,7 @@ body {
     display: block;
     padding: 12px;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
 
 }
 
@@ -59,14 +83,14 @@ body {
     width: 300px; /* Largura fixa para todos os botões */
     margin-bottom: 5px; /* Ajuste conforme necessário */
     line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .red-text-button {
