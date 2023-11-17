@@ -7,11 +7,13 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+
 }
 
 .container-wrapper {
     display: flex;
     justify-content: flex-start;
+
 }
 
 #login-container {
@@ -23,11 +25,19 @@ body {
 
 }
 
+#login-container input {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
 #main-container {
     position: fixed;
     left: 0;
     top: 150px;
-    width: 300px;
+    width: 250px;
     text-align: center;
     background-color: #fff;
     padding: 20px;
@@ -38,10 +48,30 @@ body {
 
 }
 
+#main-container button {
+    display: block;
+    width: 100%; /* Largura fixa para todos os botões */
+    margin-bottom: 5px; /* Ajuste conforme necessário */
+    line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+    border-radius: 10px;
+
+}
+
+#atletas-container {
+    display:inline;
+    margin-left: 220px;
+    padding: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; 
+
+}
+
 .cartao {
+    width: 100%;
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     text-align:center;
     background-color: #fff;
     border-radius: 10px;
@@ -52,8 +82,10 @@ body {
 .cartao img {
     max-width: 100%;
     height: auto;
-    margin-top: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
     border-radius: 10px;
+
 }
 
 .cartao button {
@@ -62,37 +94,38 @@ body {
 
 }
 
-#login-container input {
-    display: block;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 10px;
 
-}
-
-#atletas-container {
-    margin-left: 220px;
+#detalhes-container {
+    position: fixed;
+    right: 0;
+    top: 150px;
+    width: 300px;
+    text-align: left;
+    background-color: #fff;
     padding: 20px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right:9%;
+
 }
 
-#main-container button {
-    display: block;
-    width: 300px; /* Largura fixa para todos os botões */
-    margin-bottom: 5px; /* Ajuste conforme necessário */
-    line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+#detalhes-container img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 8px;
     border-radius: 10px;
 }
+
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 10px;
+
 }
 
 .red-text-button {
     color: rgb(230, 70, 70);
+
 }
