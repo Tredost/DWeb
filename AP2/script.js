@@ -1,6 +1,5 @@
 const users = [
-    { username: 'Mangeli', password: '202cb962ac59075b964b07152d234b70' }, // MD5 hash of 'password'
-    // Add more users as needed
+    { username: 'Mangeli', password: '202cb962ac59075b964b07152d234b70' },
 ];
 
 const loginContainer = document.getElementById('login-container');
