@@ -63,10 +63,6 @@ function carregarAtletas(endpoint) {
             data.forEach((atleta) => {
                 cria_cartao(atleta);
             });
-            const botaoVoltar = document.createElement('button');
-            botaoVoltar.textContent = 'Voltar';
-            botaoVoltar.onclick = voltarParaMain;
-            atletasContainer.appendChild(botaoVoltar);
         })
         .catch(error => console.error('Erro ao obter os dados:', error));
 }
@@ -94,10 +90,11 @@ function cria_cartao(entrada) {
     atletasContainer.appendChild(container_atleta);
 }
 
-function voltarParaMain() {
+function fecharDetalhes() {
     document.getElementById('login-container').style.display = 'none';
     document.getElementById('main-container').style.display = 'block';
-    document.getElementById('atletas-container').style.display = 'none';
+    document.getElementById('atletas-container').style.display = 'block';
+    document.getElementById('detalhes-container').style.display = 'none';
 }
 
 function button1() {
@@ -122,13 +119,17 @@ function buttonDetalhes(id) {
         .then(data => {
             detalhesContainer.innerHTML = '';
             detalhesContainer.innerHTML = `
-                <h2>${data.nome_completo}</h2>
+                <h2 style="text-align: center;">${data.nome_completo}</h2>
                 <img src="${data.imagem}" alt="${data.nome}">
                 <p><strong>Posição:</strong> ${data.posicao}</p>
                 <p><strong>Altura:</strong> ${data.altura}</p>
                 <p><strong>Nascimento:</strong> ${data.nascimento}</p>
                 <p><strong>Descrição:</strong> ${data.descricao}</p>
             `;
+            const botaoFechar = document.createElement('button');
+            botaoFechar.textContent = 'Fechar';
+            botaoFechar.onclick = fecharDetalhes;
+            detalhesContainer.appendChild(botaoFechar);
     })
     .catch(error => console.error('Erro ao obter detalhes:', error));
 }

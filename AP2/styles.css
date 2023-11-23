@@ -58,17 +58,17 @@ body {
 }
 
 #atletas-container {
-    display:inline;
-    margin-left: 220px;
-    padding: 20px;
-    max-width: 100%;
+    display: flex;
+    margin-left: 0px;
+    /*padding: 0px;*/
+    width: 1280px;
     max-height: 100%;
-    object-fit: cover; 
+    /*object-fit: cover;*/
 
 }
 
 .cartao {
-    width: 100%;
+    width: 280px;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 20px;
@@ -97,15 +97,15 @@ body {
 
 #detalhes-container {
     position: fixed;
-    right: 0;
-    top: 150px;
+    right: 60px;
+    top: 60px;
     width: 300px;
     text-align: left;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right:9%;
+    /*margin-right:9%;*/
 
 }
 
@@ -114,8 +114,16 @@ body {
     height: auto;
     margin-top: 8px;
     border-radius: 10px;
+    display: block;
+    margin: auto;
+
 }
 
+#detalhes-container button {
+    display: block;
+    margin: auto;
+
+}
 
 button {
     padding: 10px 20px;
