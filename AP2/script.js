@@ -6,6 +6,7 @@ const loginContainer = document.getElementById('login-container');
     const mainContainer = document.getElementById('main-container');
     const atletasContainer = document.getElementById('atletas-container');
     const detalhesContainer = document.getElementById('detalhes-container');
+    const selecaoSeletor = document.getElementById('selecao-seletor'); //aquii
 
 document.addEventListener('DOMContentLoaded', function () {
     const isLoggedIn = false;
@@ -30,6 +31,7 @@ function login() {
     const user = users.find(u => u.username === usernameInput.value && u.password === md5(passwordInput.value));
 
     if (user) {
+        localStorage.setItem('autorizado','true')
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('main-container').style.display = 'block';
         document.getElementById('atletas-container').style.display = 'none';
@@ -45,6 +47,31 @@ function logout() {
     document.getElementById('atletas-container').style.display = 'none';
     document.getElementById('detalhes-container').style.display = 'none';
 }
+
+
+function selecionarOpcao() {
+    const opcaoSelecionada = selecaoSeletor.value;
+
+    switch (opcaoSelecionada) {
+        case 'masculino':
+            button1();
+            break;
+        case 'feminino':
+            button2();
+            break;
+        case 'ambos':
+            button3();
+            break;
+        case 'sair':
+            logout();
+            break;
+        default:
+            // Lógica padrão, se necessário
+    }
+}
+
+selecaoSeletor.addEventListener('change', selecionarOpcao); //aquiii gpt
+
 
 function md5(input) {
     return CryptoJS.MD5(input).toString();
