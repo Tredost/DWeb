@@ -34,80 +34,144 @@ body {
 
 }
 
-#main-container {
-    position: fixed;
-    left: 0;
-    right: 0px;
-    top: 0px;
-    width: 100%;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-}
-
-
-#selecao-seletor {
-    display: none;
-}
 
 @media (max-width: 768px) {
+    #main-container {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+    #main-container button {
+        display: block;
+        width: 90%; /* Largura fixa para todos os botões */
+        margin-bottom: 5px; /* Ajuste conforme necessário */
+        line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+        border-radius: 10px;
+
+    }
+
+    #main-container select {
+        height: 50px;
+        width: 90%; /* Largura fixa para todos os botões */
+        margin-bottom: 5px; /* Ajuste conforme necessário */
+        line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+        border-radius: 10px;
+
+    }
+
+    #atletas-container {
+        height: 40%;
+    }
+
+    #detalhes-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        text-align: left;
+        background-color: #fff;
+    }
+
     #selecao-seletor {
         display: block;
     }
+
     #selecao-botoes {
         display: none;
     }
 
 }
 
-#main-container button {
-    display: block;
-    width: 100%; /* Largura fixa para todos os botões */
-    margin-bottom: 5px; /* Ajuste conforme necessário */
-    line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
-    border-radius: 10px;
-
-}
-
-#main-container option {
-    display: block;
-    width: 100%; /* Largura fixa para todos os botões */
-    margin-bottom: 5px; /* Ajuste conforme necessário */
-    line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
-    border-radius: 10px;
-
-}
-
-#atletas-container {
-    display: grid;
-    margin-left: 0px;
-    flex-wrap: wrap;
-    /*padding: 0px;*/
-    width: 100%;
-    max-height: 100%;
-    max-width: 1200px;
-    /*object-fit: cover;*/
-
-}
-
-@media (max-width: 768px) {
-    #atletas-container {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (min-width: 769px) and (max-width: 1024px) {
     #atletas-container {
+        margin-top: 710px;
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (min-width: 1025px) {
     #atletas-container {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        display: grid;
+        margin-left: 0px;
+        flex-wrap: wrap;
+        /*padding: 0px;*/
+        width: 100%;
+        max-height: 100%;
+        max-width: 1200px;
+        /*object-fit: cover;*/
+
     }
+
+    #main-container {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        width: 100%;
+        text-align: left;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    }
+
+    #selecao-seletor {
+        display: none;
+    }
+
+    #main-container button {
+        display: inline-block;
+        width: 8%; /* Largura fixa para todos os botões */
+        margin: 0 ;
+        margin-bottom: 5px;
+        line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+        border-radius: 10px;
+
+    }
+
+    #main-container select {
+        height: 50px;
+        width: 100%; /* Largura fixa para todos os botões */
+        margin-bottom: 5px; /* Ajuste conforme necessário */
+        line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+        border-radius: 10px;
+
+    }
+
+    #main-container option {
+        display: block;
+        width: 100%; /* Largura fixa para todos os botões */
+        margin-bottom: 5px; /* Ajuste conforme necessário */
+        line-height: 30px; /* Ajuste conforme necessário para centralizar verticalmente o texto */
+        border-radius: 10px;
+
+    }
+
+    #detalhes-container {
+        position: fixed;
+        right: 60px;
+        top: 60px;
+        width: 300px;
+        text-align: left;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-right:9%;
+
+    }
+
 }
 
 .cartao {
@@ -138,19 +202,7 @@ body {
 }
 
 
-#detalhes-container {
-    position: fixed;
-    right: 60px;
-    top: 60px;
-    width: 300px;
-    text-align: left;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /*margin-right:9%;*/
 
-}
 
 #detalhes-container img {
     max-width: 100%;
