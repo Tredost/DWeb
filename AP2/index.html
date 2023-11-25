@@ -20,19 +20,22 @@
   </div>
 
   <div id="main-container">
-    <h1>Elenco</h1>
     <div id="selecao-botoes">
+      <h1>Elenco</h1>
       <button onclick="button1()">Masculino</button>
       <button onclick="button2()">Feminino</button>
       <button onclick="button3()">Ambos</button>
-
+      <button onclick="logout()" class="red-text-button">Sair</button>
     </div>
-    <select id="selecao-seletor">
-      <option value="masculino">Masculino</option>
-      <option value="feminino">Feminino</option>
-      <option value="ambos">Ambos</option>
-    </select>
-    <button onclick="logout()" class="red-text-button">Sair</button>
+    <div id="selecao-seletor-div">
+      <h1>Elenco</h1>
+      <select id="selecao-seletor">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="ambos">Ambos</option>
+      </select>
+      <button onclick="logout()" class="red-text-button">Sair</button>
+    </div>
   </div>
 
   <div id="atletas-container"></div>
